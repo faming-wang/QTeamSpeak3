@@ -1,0 +1,17 @@
+cmake_minimum_required (VERSION 3.9.0)
+
+project (QTeamSpeak3 VERSION 0.4.4)
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+set (CMAKE_DEBUG_POSTFIX d)
+set (CMAKE_AUTOMOC ON)
+set (CMAKE_AUTOUIC ON)
+set (CMAKE_AUTORCC ON)
+
+add_subdirectory(sdk)
+
+include (FeatureSummary) 
+feature_summary (INCLUDE_QUIET_PACKAGES WHAT
+  PACKAGES_FOUND PACKAGES_NOT_FOUND
+  ENABLED_FEATURES DISABLED_FEATURES
+)
