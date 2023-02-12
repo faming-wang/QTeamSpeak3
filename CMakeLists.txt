@@ -1,17 +1,22 @@
-cmake_minimum_required (VERSION 3.9.0)
+cmake_minimum_required (VERSION 3.22.0)
 
-project (QTeamSpeak3 VERSION 0.4.4)
-list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_DEBUG_POSTFIX d)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-set (CMAKE_DEBUG_POSTFIX d)
-set (CMAKE_AUTOMOC ON)
-set (CMAKE_AUTOUIC ON)
-set (CMAKE_AUTORCC ON)
+set(project_langs C CXX)
+if (APPLE)
+    set(project_langs C CXX OBJC OBJCXX)
+endif()
 
-add_subdirectory(sdk)
+project(QTeamSpeak3 LANGUAGES ${project_langs} VERSION 0.4.4)
 
-include (FeatureSummary) 
+add_subdirectory(src)
+
+include (FeatureSummary)
 feature_summary (INCLUDE_QUIET_PACKAGES WHAT
-  PACKAGES_FOUND PACKAGES_NOT_FOUND
-  ENABLED_FEATURES DISABLED_FEATURES
+    PACKAGES_FOUND PACKAGES_NOT_FOUND
+    ENABLED_FEATURES DISABLED_FEATURES
 )
