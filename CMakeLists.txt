@@ -14,6 +14,7 @@ endif()
 project(QTeamSpeak3 LANGUAGES ${project_langs} VERSION 0.4.4)
 
 add_subdirectory(src)
+add_subdirectory(examples)
 
 include (FeatureSummary)
 feature_summary (INCLUDE_QUIET_PACKAGES WHAT
